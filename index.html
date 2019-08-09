@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=off" />
+  <title>Ruta del agua</title>
+
+  <link rel="stylesheet" href="https://js.arcgis.com/4.12/esri/themes/light/main.css" />
+  <script src="https://js.arcgis.com/4.12/"></script>
+  <link rel="stylesheet" href="css/style.css" type="text/css">
+  <script src="js/preguntas.js"></script>
+  <script src="js/map.js"></script>
+</head>
+
+<body>
+  <header>
+    <div id="random-div">
+      <!-- <figure>
+        <img id="vida" src="corazones.png" alt="">
+      </figure> -->
+      <h1>Busca:</h1>
+      <h1 id="municipio-random"></h1>
+    </div>
+  </header>
+  <div id="viewDiv"></div>
+  <div id="nombre-div" class="esri-widget">
+    <h1 id="nombre-municipio">Juego</h1>
+  </div>
+  <div id="preguntas-div" class="esri-widget">
+    <form id="form" action="">
+      <div id="pregunta"></div>
+      <input type="button" value="Enviar" id="enviar" style="visibility: hidden;">
+    </form>
+    </form>
+  </div>
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <p id="modal-txt">Some text in the Modal..</p>
+    </div>
+  </div>
+</body>
+
+</html>
