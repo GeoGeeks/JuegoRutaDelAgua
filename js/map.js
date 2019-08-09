@@ -14,11 +14,20 @@ require([
     portalItem: {
       id: "e0bc38a2446049ab90b77be81a20c574"
     },
-    outFields: ["*"]
+    outFields: ["*"],
+    labelsVisible: false
+  });
+  console.log("MPIO_CNMBR like '"+ municipio +"'");
+  var labelOn = new FeatureLayer({
+    portalItem: {
+      id: "e0bc38a2446049ab90b77be81a20c574"
+    },
+    outFields: ["*"],
+    definitionExpression: "MPIO_CNMBR like '"+ municipio +"'"
   });
 
   const map = new WebMap({
-    basemap: "osm",
+    basemap: "satellite",
     layers: [fLayer]
   });
 
@@ -130,6 +139,7 @@ require([
             result = result.graphic.attributes.MPIO_CNMBR
             if (intentos > 0) {
               if (result === municipio) {
+                map.add(labelOn);
                 var valor = preguntas.filter(function ({
                   nombre
                 }) {
