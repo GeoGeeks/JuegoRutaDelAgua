@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=EB+Garamond&display=swap');
+
 html,
 body {
+  font-family: 'Indie Flower', cursive;
   padding: 0;
   margin: 0;
   height: 100%;
@@ -7,12 +10,16 @@ body {
 }
 
 h1 {
-  font: 600 1.5em/1 'Raleway', sans-serif;
-  color: #444;
+  font-family: 'Indie Flower', cursive;
+  color: #000;
   text-align: center;
   text-transform: uppercase;
   letter-spacing: .5em;
   display: inline-block;
+}
+
+h2 {
+  font-family: 'Indie Flower', cursive;
 }
 
 figure {
@@ -24,8 +31,36 @@ figure {
   color: #e4042b
 }
 
+#pregunta {
+  margin-top: -15%;
+}
+
+#enviar {
+  font-family: 'Indie Flower', cursive;
+  padding: 3%;
+  border: #000;
+  width: 15%;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  margin-top: 10%;
+  color: #000;
+  background-color: white;
+  border-radius: 20%;
+}
+
 .vidas {
   width: 3%;
+}
+
+.vidass {
+  margin-left: 12%;
+  margin-top: -4%;
+}
+
+#titulo {
+  margin-left: 40%;
+  margin-top: -4%;
 }
 
 #random-div {
@@ -33,14 +68,17 @@ figure {
   padding: 1%;
   margin: 0;
   height: 10%;
-  width: 100%;
+  width: 98%;
+  background-color: #46, 204, 113;
+  opacity: 100px;
+
 }
 
 #viewDiv {
   float: left;
   padding: 0;
   margin: 0;
-  height: 100%;
+  height: 89%;
   width: 70%;
 }
 
@@ -48,7 +86,7 @@ figure {
   float: right;
   width: 30%;
   top: 25%;
-  height: 75%;
+  height: 64%;
   padding: 1em;
 }
 

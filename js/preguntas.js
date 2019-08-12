@@ -198,7 +198,7 @@ const preguntas = [{
   nombre: 'JUNÍN',
   ficha: 'assets/ficha_junin.jpg',
   preguntas: [{
-    txt: '¿En Junín hay unas cascadas imperdibles de casi 50 m.de altura.¿Cómo se llaman?',
+    txt: '¿En Junín hay unas cascadas imperdibles de casi 50m de altura.¿Cómo se llaman?',
     respuestas: [{
         txt: 'Cascadas de Sueva',
         valida: true
