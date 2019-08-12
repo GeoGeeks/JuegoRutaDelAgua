@@ -6,9 +6,23 @@ require([
 ], function (WebMap, FeatureLayer, MapView, Feature) {
 
   var intentos = 3
+  var enJuego = true
   var municipios = ['LA CALERA', 'GUASCA', 'FÓMEQUE', 'JUNÍN', 'GACHETÁ', 'GAMA', 'GACHALÁ', 'MEDINA']
   var municipio
   municipioAleatorio()
+
+  var modal = document.getElementById("myModal");
+  var span = document.getElementsByClassName("close")[0];
+
+  span.onclick = function () {
+    modal.style.display = "none";
+  }
+
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
 
   const fLayer = new FeatureLayer({
     portalItem: {
@@ -17,13 +31,13 @@ require([
     outFields: ["*"],
     labelsVisible: false
   });
-  console.log("MPIO_CNMBR like '"+ municipio +"'");
+
   var labelOn = new FeatureLayer({
     portalItem: {
       id: "e0bc38a2446049ab90b77be81a20c574"
     },
     outFields: ["*"],
-    definitionExpression: "MPIO_CNMBR like '"+ municipio +"'"
+    definitionExpression: "MPIO_CNMBR like '" + municipio + "'"
   });
 
   const map = new WebMap({
@@ -51,10 +65,14 @@ require([
     let valueRespuestaDos = form.elements["respuesta-1"].value
     let valueRespuestaTres = form.elements["respuesta-2"].value
     if (valueRespuestaUno === "true" && valueRespuestaDos === "true" && valueRespuestaTres === "true") {
-      console.log("Gano")
-      siguientePregunta()
+      modal.style.display = "block";
+      if (municipios.length > 0) {
+        siguientePregunta()
+        enJuego = true
+      } else {
+        nombreMunicipio.innerHTML = 'Has ganado!'
+      }
     } else {
-      console.log("Perdio")
       intentoFallido()
     }
   }
@@ -81,26 +99,11 @@ require([
 
   function mostrarPreguntasPorMunicipio(municipio) {
     nombreMunicipio.innerHTML = municipio.nombre
+    document.getElementById('ficha').src = municipio.ficha
     for (let i = 0; i < municipio.preguntas.length; i++) {
       crearPregunta(municipio.preguntas[i], i)
     }
     btnEnviar.style.visibility = 'visible'
-  }
-
-  function limpiarPreguntas() {
-    while (preguntaDiv.firstChild) {
-      preguntaDiv.removeChild(preguntaDiv.firstChild)
-    }
-    btnEnviar.style.visibility = 'hidden'
-  }
-
-  function intentoFallido() {
-    intentos -= 1
-  }
-
-  function siguientePregunta() {
-    limpiarPreguntas()
-    municipioAleatorio()
   }
 
   function municipioAleatorio() {
@@ -108,8 +111,32 @@ require([
     municipio = municipios[numAleatorio]
     if (municipios.length > 0) {
       municipios.splice(numAleatorio, 1)
+      document.getElementById('municipio-random').innerHTML = municipio
     }
-    document.getElementById('municipio-random').innerHTML = municipio
+  }
+
+  function limpiarPreguntas() {
+    nombreMunicipio.innerHTML = ''
+    while (preguntaDiv.firstChild) {
+      preguntaDiv.removeChild(preguntaDiv.firstChild)
+    }
+    btnEnviar.style.visibility = 'hidden'
+  }
+
+  function intentoFallido() {
+    console.log(intentos)
+    if (intentos > 0) {
+      intentos -= 1
+    } else {
+      enJuego = false
+      map.add(labelOn);
+      nombreMunicipio.innerHTML = 'Has perdido!'
+    }
+  }
+
+  function siguientePregunta() {
+    limpiarPreguntas()
+    municipioAleatorio()
   }
 
   view.when().then(function () {
@@ -137,8 +164,9 @@ require([
           // Make sure graphic has a popupTemplate
           let results = event.results.filter(function (result) {
             result = result.graphic.attributes.MPIO_CNMBR
-            if (intentos > 0) {
+            if (enJuego) {
               if (result === municipio) {
+                enJuego = false
                 map.add(labelOn);
                 var valor = preguntas.filter(function ({
                   nombre

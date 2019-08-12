@@ -1,5 +1,6 @@
 const preguntas = [{
   nombre: 'MEDINA',
+  ficha: 'assets/ficha_medina.jpg',
   preguntas: [{
     txt: '¿Cómo se conoce al municipio de Medina?',
     respuestas: [{
@@ -48,6 +49,7 @@ const preguntas = [{
   }]
 }, {
   nombre: 'GACHALÁ',
+  ficha: 'assets/ficha_gachala.jpg',
   preguntas: [{
     txt: 'Uno de los puntos más representativos de Gachalá es una parte de este embalse:',
     respuestas: [{
@@ -96,6 +98,7 @@ const preguntas = [{
   }]
 }, {
   nombre: 'GAMA',
+  ficha: 'assets/ficha_gama.jpg',
   preguntas: [{
     txt: '¿Cómo se llama la laguna más representativa del municipio de Gama?',
     respuestas: [{
@@ -144,6 +147,7 @@ const preguntas = [{
   }]
 }, {
   nombre: 'GACHETÁ',
+  ficha: 'assets/ficha_gacheta.jpg',
   preguntas: [{
     txt: 'Uno de los manjares de Gachetá es el:',
     respuestas: [{
@@ -192,6 +196,7 @@ const preguntas = [{
   }]
 }, {
   nombre: 'JUNÍN',
+  ficha: 'assets/ficha_junin.jpg',
   preguntas: [{
     txt: '¿En Junín hay unas cascadas imperdibles de casi 50 m.de altura.¿Cómo se llaman?',
     respuestas: [{
@@ -240,6 +245,7 @@ const preguntas = [{
   }]
 }, {
   nombre: 'GUASCA',
+  ficha: 'assets/ficha_guasca.jpg',
   preguntas: [{
     txt: '¿A qué altura está la laguna de Siecha, atractivo del municipio de Guasca?',
     respuestas: [{
@@ -289,6 +295,7 @@ const preguntas = [{
   }]
 }, {
   nombre: 'LA CALERA',
+  ficha: 'assets/ficha_la_calera.jpg',
   preguntas: [{
     txt: 'La Calera tiene un cerro cuyo nombre está inspirado en una leyenda popular. ¿Cuál es?',
     respuestas: [{
@@ -337,6 +344,7 @@ const preguntas = [{
   }]
 }, {
   nombre: 'FÓMEQUE',
+  ficha: 'assets/ficha_fomeque.jpg',
   preguntas: [{
     txt: '¿Fómeque, en muisca, traduce “el bosque de...” qué animales?',
     respuestas: [{
