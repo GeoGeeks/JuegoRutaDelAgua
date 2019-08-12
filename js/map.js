@@ -32,13 +32,6 @@ require([
     labelsVisible: false
   });
 
-  var labelOn = new FeatureLayer({
-    portalItem: {
-      id: "e0bc38a2446049ab90b77be81a20c574"
-    },
-    outFields: ["*"],
-    definitionExpression: "MPIO_CNMBR like '" + municipio + "'"
-  });
 
   const map = new WebMap({
     basemap: "satellite",
@@ -129,6 +122,14 @@ require([
       document.getElementById('vidas_' + intentos).src = 'assets/death.png'
       intentos -= 1
     } else {
+      var labelOn = new FeatureLayer({
+        portalItem: {
+          id: "e0bc38a2446049ab90b77be81a20c574"
+        },
+        outFields: ["*"],
+        definitionExpression: "MPIO_CNMBR like '" + municipio + "'"
+      });
+
       enJuego = false
       map.add(labelOn);
       nombreMunicipio.innerHTML = 'Has perdido!'
@@ -167,7 +168,14 @@ require([
             result = result.graphic.attributes.MPIO_CNMBR
             if (enJuego) {
               if (result === municipio) {
-                enJuego = false
+                enJuego = false;
+                var labelOn = new FeatureLayer({
+                  portalItem: {
+                    id: "e0bc38a2446049ab90b77be81a20c574"
+                  },
+                  outFields: ["*"],
+                  definitionExpression: "MPIO_CNMBR like '" + municipio + "'"
+                });
                 map.add(labelOn);
                 var valor = preguntas.filter(function ({
                   nombre
