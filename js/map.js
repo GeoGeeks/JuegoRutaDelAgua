@@ -126,6 +126,7 @@ require([
   function intentoFallido() {
     console.log(intentos)
     if (intentos > 0) {
+      document.getElementById('vidas_' + intentos).src = 'assets/death.png'
       intentos -= 1
     } else {
       enJuego = false
