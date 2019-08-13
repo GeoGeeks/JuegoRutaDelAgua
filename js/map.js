@@ -57,6 +57,7 @@ require([
   var nombreMunicipio = document.getElementById('nombre-municipio')
   var preguntaDiv = document.getElementById('pregunta')
   var sound = document.getElementById("audio");
+  var preguntasDiv = document.getElementById("instrucciones-div")
 
   btnEnviar.onclick = function () {
     let form = document.getElementById('form')
@@ -143,12 +144,21 @@ require([
     }
     btnEnviar.style.visibility = 'hidden'
   }
+  function limpiarInstrucines(){
+    preguntasDiv.innerHTML = ''
+    while (preguntasDiv.firstChild){
+      preguntasDiv.removeChild(preguntasDiv.firstChild);
+    }
+    preguntasDiv.style.display='none'
+
+  }
 
   function intentoFallido() {
     intentos -= 1
     if (intentos > 0) {
       document.getElementById('vidas_' + intentos).src = 'assets/death.png'
     } else {
+      limpiarInstrucines()
       document.getElementById('vidas_' + intentos).src = 'assets/death.png'
       var labelOn = new FeatureLayer({
         portalItem: {
@@ -211,7 +221,8 @@ require([
                 }) {
                   return nombre === result
                 })
-                mostrarPreguntasPorMunicipio(valor[0])
+                limpiarInstrucines()
+                mostrarPreguntasPorMunicipio(valor[0])               
               } else {
                 intentoFallido()
               }
