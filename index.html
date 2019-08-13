@@ -17,11 +17,13 @@
 
 <body>
   <header>
+    <audio id="audio" src="https://www.soundjay.com/button/button-10.wav" autoplay="false"></audio>
     <div id="random-div">
       <figure>
         <h1>Vidas</h1>
       </figure>
       <div class="vidass">
+        <img id="vidas_0" class="vidas" src="assets/life.png" alt="">
         <img id="vidas_1" class="vidas" src="assets/life.png" alt="">
         <img id="vidas_2" class="vidas" src="assets/life.png" alt="">
         <img id="vidas_3" class="vidas" src="assets/life.png" alt="">
@@ -42,7 +44,12 @@
     <form id="form" action="">
       <div id="pregunta"></div>
       <center>
-        <input type="button" value="Enviar" id="enviar" style="visibility: hidden;">
+        <br>
+        <button class="button button2" type='button' id="enviar" style="visibility: hidden;">Enviar</button>
+        <br>
+        <button class="button button1" type='button' id="reiniciar" style="visibility: hidden;">¡Volver a
+          jugar!</button>
+        <!-- <input type="button" value="¡Volver a jugar!" id="reiniciar"> -->
       </center>
     </form>
     </form>

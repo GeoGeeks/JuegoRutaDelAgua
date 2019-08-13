@@ -5,13 +5,15 @@ require([
   "esri/widgets/Feature"
 ], function (WebMap, FeatureLayer, MapView, Feature) {
 
-  var intentos = 3
+  var intentos = 4
   var enJuego = true
   var municipios = ['LA CALERA', 'GUASCA', 'FÓMEQUE', 'JUNÍN', 'GACHETÁ', 'GAMA', 'GACHALÁ', 'MEDINA']
   var municipio
+  var labelOn
   municipioAleatorio()
 
   var modal = document.getElementById("myModal");
+  var modalBienvenida = document.getElementById('modalBienvenida')
   var span = document.getElementsByClassName("close")[0];
 
   span.onclick = function () {
@@ -49,8 +51,10 @@ require([
   });
 
   var btnEnviar = document.getElementById('enviar')
+  var btnReiniciar = document.getElementById('reiniciar')
   var nombreMunicipio = document.getElementById('nombre-municipio')
   var preguntaDiv = document.getElementById('pregunta')
+  var sound = document.getElementById("audio");
 
   btnEnviar.onclick = function () {
     let form = document.getElementById('form')
@@ -58,7 +62,7 @@ require([
     let valueRespuestaDos = form.elements["respuesta-1"].value
     let valueRespuestaTres = form.elements["respuesta-2"].value
     if (valueRespuestaUno === "true" && valueRespuestaDos === "true" && valueRespuestaTres === "true") {
-      modal.style.display = "block";
+      modal.style.display = "block"
       if (municipios.length > 0) {
         siguientePregunta()
         enJuego = true
@@ -66,8 +70,19 @@ require([
         nombreMunicipio.innerHTML = 'Has ganado!'
       }
     } else {
-      intentoFallido()
+      sound.play();
     }
+  }
+
+  btnReiniciar.onclick = function () {
+    intentos = 4
+    enJuego = true
+    for (let i = 0; i < intentos; i++) {
+      document.getElementById('vidas_' + i).src = 'assets/life.png'
+    }
+    map.removeAll()
+    map.add(fLayer)
+    limpiarPreguntas()
   }
 
   function crearPregunta(pregunta, id) {
@@ -117,11 +132,11 @@ require([
   }
 
   function intentoFallido() {
-    console.log(intentos)
+    intentos -= 1
     if (intentos > 0) {
       document.getElementById('vidas_' + intentos).src = 'assets/death.png'
-      intentos -= 1
     } else {
+      document.getElementById('vidas_' + intentos).src = 'assets/death.png'
       var labelOn = new FeatureLayer({
         portalItem: {
           id: "e0bc38a2446049ab90b77be81a20c574"
@@ -129,10 +144,10 @@ require([
         outFields: ["*"],
         definitionExpression: "MPIO_CNMBR like '" + municipio + "'"
       });
-
       enJuego = false
       map.add(labelOn);
       nombreMunicipio.innerHTML = 'Has perdido!'
+      btnReiniciar.style.visibility = 'visible'
     }
   }
 
@@ -169,7 +184,7 @@ require([
             if (enJuego) {
               if (result === municipio) {
                 enJuego = false;
-                var labelOn = new FeatureLayer({
+                labelOn = new FeatureLayer({
                   portalItem: {
                     id: "e0bc38a2446049ab90b77be81a20c574"
                   },
