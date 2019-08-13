@@ -7,7 +7,8 @@ require([
 
   var intentos = 4
   var enJuego = true
-  var municipios = ['LA CALERA', 'GUASCA', 'FÓMEQUE', 'JUNÍN', 'GACHETÁ', 'GAMA', 'GACHALÁ', 'MEDINA']
+  const municipiosInit = ['LA CALERA', 'GUASCA', 'FÓMEQUE', 'JUNÍN', 'GACHETÁ', 'GAMA', 'GACHALÁ', 'MEDINA']
+  var municipios = municipiosInit
   var municipio
   var labelOn
   municipioAleatorio()
@@ -77,12 +78,15 @@ require([
   btnReiniciar.onclick = function () {
     intentos = 4
     enJuego = true
+    municipios = municipiosInit
+    municipioAleatorio()
     for (let i = 0; i < intentos; i++) {
       document.getElementById('vidas_' + i).src = 'assets/life.png'
     }
     map.removeAll()
     map.add(fLayer)
     limpiarPreguntas()
+    btnReiniciar.style.visibility = 'hidden'
   }
 
   function crearPregunta(pregunta, id) {
