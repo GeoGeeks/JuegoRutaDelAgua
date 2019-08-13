@@ -14,7 +14,7 @@ require([
   municipioAleatorio()
 
   var modal = document.getElementById("myModal");
-  var modalBienvenida = document.getElementById('modalBienvenida')
+  var modalInicio = document.getElementById('modalInicio')
   var span = document.getElementsByClassName("close")[0];
 
   span.onclick = function () {
@@ -53,6 +53,7 @@ require([
 
   var btnEnviar = document.getElementById('enviar')
   var btnReiniciar = document.getElementById('reiniciar')
+  var btnJugar = document.getElementById('jugar')
   var nombreMunicipio = document.getElementById('nombre-municipio')
   var preguntaDiv = document.getElementById('pregunta')
   var sound = document.getElementById("audio");
@@ -87,6 +88,10 @@ require([
     map.add(fLayer)
     limpiarPreguntas()
     btnReiniciar.style.visibility = 'hidden'
+  }
+
+  btnJugar.onclick = function (){
+    modalInicio.style.display = "none"
   }
 
   function crearPregunta(pregunta, id) {
