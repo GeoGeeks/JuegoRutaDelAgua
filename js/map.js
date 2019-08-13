@@ -1,10 +1,11 @@
+require
 require([
   "esri/WebMap",
   "esri/layers/FeatureLayer",
   "esri/views/MapView",
   "esri/widgets/Feature"
 ], function (WebMap, FeatureLayer, MapView, Feature) {
-
+  var puntaje = 0
   var intentos = 4
   var enJuego = true
   const municipiosInit = ['LA CALERA', 'GUASCA', 'FÓMEQUE', 'JUNÍN', 'GACHETÁ', 'GAMA', 'GACHALÁ', 'MEDINA']
@@ -67,16 +68,21 @@ require([
     if (valueRespuestaUno === "true" && valueRespuestaDos === "true" && valueRespuestaTres === "true") {
       modal.style.display = "block"
       if (municipios.length > 0) {
+        puntaje+=3
+        console.log(puntaje)
         siguientePregunta()
         enJuego = true
       } else {
         enJuego = false
         limpiarPreguntas()
-        nombreMunicipio.innerHTML = 'Has ganado!'
+        nombreMunicipio.innerHTML = 'Has ganado!<br><br>Tu puntaje es: '+puntaje
         btnReiniciar.style.visibility = 'visible'
       }
     } else {
+      // swal("Has contestado mal")
+      alert("Tus respuestas son incorrectas, verificalas")
       sound.play();
+      
     }
   }
 
@@ -170,7 +176,7 @@ require([
       enJuego = false
       map.add(labelOn);
       modal.style.display = "none";
-      nombreMunicipio.innerHTML = 'Has perdido!'
+      nombreMunicipio.innerHTML = 'Has perdido!<br><br>Tu puntaje: '+puntaje
       btnReiniciar.style.visibility = 'visible'
     }
   }
