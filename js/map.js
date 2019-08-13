@@ -115,6 +115,7 @@ require([
   }
 
   function mostrarPreguntasPorMunicipio(municipio) {
+    modal.style.display = "none";
     nombreMunicipio.innerHTML = municipio.nombre
     document.getElementById('ficha').src = municipio.ficha
     for (let i = 0; i < municipio.preguntas.length; i++) {
