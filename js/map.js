@@ -69,7 +69,10 @@ require([
         siguientePregunta()
         enJuego = true
       } else {
+        enJuego = false
+        limpiarPreguntas()
         nombreMunicipio.innerHTML = 'Has ganado!'
+        btnReiniciar.style.visibility = 'visible'
       }
     } else {
       sound.play();
@@ -90,7 +93,7 @@ require([
     btnReiniciar.style.visibility = 'hidden'
   }
 
-  btnJugar.onclick = function (){
+  btnJugar.onclick = function () {
     modalInicio.style.display = "none"
   }
 
@@ -156,6 +159,7 @@ require([
       });
       enJuego = false
       map.add(labelOn);
+      modal.style.display = "none";
       nombreMunicipio.innerHTML = 'Has perdido!'
       btnReiniciar.style.visibility = 'visible'
     }
