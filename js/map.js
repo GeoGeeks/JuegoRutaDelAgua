@@ -1,3 +1,4 @@
+require
 require([
   "esri/WebMap",
   "esri/layers/FeatureLayer",
@@ -69,18 +70,34 @@ require([
     if (valueRespuestaUno === "true" && valueRespuestaDos === "true" && valueRespuestaTres === "true") {
       modal.style.display = "block"
       if (municipios.length > 0) {
+<<<<<<< HEAD
         puntaje+=3    
+=======
+        puntaje+=3
+        console.log(puntaje)
+>>>>>>> b85dc818fb3a7d3f2a3b239969587bd4db772a3f
         siguientePregunta()
         enJuego = true
       } else {
         enJuego = false
         limpiarPreguntas()
+<<<<<<< HEAD
         nombreMunicipio.innerHTML = '¡Has ganado!<br><br>Tu puntaje es: '+puntaje+'/24'
         btnReiniciar.style.visibility = 'visible'
       }
     } else {
       alertaError()
       //sound.play();
+=======
+        nombreMunicipio.innerHTML = 'Has ganado!<br><br>Tu puntaje es: '+puntaje
+        btnReiniciar.style.visibility = 'visible'
+      }
+    } else {
+      // swal("Has contestado mal")
+      alert("Tus respuestas son incorrectas, verificalas")
+      sound.play();
+      
+>>>>>>> b85dc818fb3a7d3f2a3b239969587bd4db772a3f
     }
   }
 
@@ -174,7 +191,11 @@ require([
       enJuego = false
       map.add(labelOn);
       modal.style.display = "none";
+<<<<<<< HEAD
       nombreMunicipio.innerHTML = '¡Has perdido!<br><br>Tu puntaje: '+puntaje+'/24'
+=======
+      nombreMunicipio.innerHTML = 'Has perdido!<br><br>Tu puntaje: '+puntaje
+>>>>>>> b85dc818fb3a7d3f2a3b239969587bd4db772a3f
       btnReiniciar.style.visibility = 'visible'
     }
   }
@@ -226,7 +247,11 @@ require([
                   return nombre === result
                 })
                 limpiarInstrucines()
+<<<<<<< HEAD
                 mostrarPreguntasPorMunicipio(valor[0])
+=======
+                mostrarPreguntasPorMunicipio(valor[0])               
+>>>>>>> b85dc818fb3a7d3f2a3b239969587bd4db772a3f
               } else {
                 intentoFallido()
               }

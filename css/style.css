@@ -19,7 +19,7 @@ h1 {
   display: inline-block;
 }
 
-h2 {
+h2, p, li {
   font-family: 'Indie Flower', cursive;
 }
 
@@ -94,8 +94,14 @@ figure {
 }
 
 .vidass {
+<<<<<<< HEAD
   margin-left: 1%;
     margin-top: -1%;
+=======
+  
+  margin-left: 11%;
+  margin-top: -4%;
+>>>>>>> b85dc818fb3a7d3f2a3b239969587bd4db772a3f
 }
 
 #titulo {
@@ -207,12 +213,15 @@ h2 {
   background-color: #4CAF50;
   color: white;
   left: 45%;
+<<<<<<< HEAD
   margin-top: 0%;
   font-family: 'Roboto', sans-serif;
   border-radius: 20px;
   height: 7%;
   position: absolute;
 
+=======
+>>>>>>> b85dc818fb3a7d3f2a3b239969587bd4db772a3f
 }
 
 .button3:hover {
@@ -258,15 +267,21 @@ h2 {
   border: 1px solid #888;
   width: 80%;
   /* Could be more or less, depending on screen size */
+<<<<<<< HEAD
   font-family: 'Bad Script', cursive;
   border-radius: 20px;
   background-image: url("../assets/ima.jpg");
   
 }
+=======
+}
+
+>>>>>>> b85dc818fb3a7d3f2a3b239969587bd4db772a3f
 .modal-content #ficha{
   width: 100%;
   height: 100%;
 }
+<<<<<<< HEAD
 
 #text{
   font-family: 'Roboto', sans-serif;
@@ -276,3 +291,5 @@ h2 {
 /*.swal-overlay--show-modal .swal-modal {
   background-image: url("../assets/ima.jpg");
 }*/ 
+=======
+>>>>>>> b85dc818fb3a7d3f2a3b239969587bd4db772a3f
