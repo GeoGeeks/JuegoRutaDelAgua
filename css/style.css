@@ -7,6 +7,7 @@ body {
   margin: 0;
   height: 100%;
   width: 100%;
+
 }
 
 h1 {
@@ -21,6 +22,12 @@ h1 {
 h2 {
   font-family: 'Indie Flower', cursive;
 }
+
+ul, li{
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+}
+
 
 figure {
   margin-right: 20%;
@@ -59,11 +66,13 @@ figure {
   background-color: white;
   color: black;
   border: 2px solid #008CBA;
+  border-radius: 20px;
 }
 
 .button2:hover {
   background-color: #008CBA;
   color: white;
+  border-radius: 20px;
 }
 
 .button1 {
@@ -71,11 +80,13 @@ figure {
   background-color: white;
   color: black;
   border: 2px solid #4CAF50;
+  border-radius: 20px;
 }
 
 .button1:hover {
   background-color: #4CAF50;
   color: white;
+  border-radius: 20px;
 }
 
 .vidas {
@@ -83,13 +94,13 @@ figure {
 }
 
 .vidass {
-  margin-left: 11%;
-  margin-top: -4%;
+  margin-left: 1%;
+    margin-top: -1%;
 }
 
 #titulo {
   margin-left: 40%;
-  margin-top: -4%;
+  margin-top: -6%;
 }
 
 #random-div {
@@ -108,14 +119,28 @@ figure {
   margin: 0;
   height: 89%;
   width: 70%;
+  margin-top: 1%;
 }
 
-#preguntas-div {
+#preguntas-div, #instrucciones-div {
   float: right;
   width: 30%;
   top: 25%;
   height: 64%;
   padding: 1em;
+  background-image: url("../assets/ima.jpg");
+  opacity: 0,5;
+}
+h1 {
+  font-family: 'Abril Fatface', cursive;
+  color: #000;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: .5em;
+  display: inline-block;
+}
+h2 {
+  font-family: 'Bad Script', cursive;
 }
 
 #nombre-div {
@@ -148,6 +173,8 @@ figure {
   /* Fallback color */
   background-color: rgba(0, 0, 0, 0.1);
   /* Black w/ opacity */
+  font-family: 'Roboto', sans-serif;
+
 }
 
 /* Modal Content */
@@ -157,6 +184,8 @@ figure {
   padding: 20px;
   border: 1px solid #888;
   width: 80%;
+  font-family: 'Roboto', sans-serif;
+
 }
 
 .close {
@@ -175,14 +204,23 @@ figure {
 
 .button3 {
   font-size: 25px;
-  background-color: #f44336;
+  background-color: #4CAF50;
   color: white;
+  left: 45%;
+  margin-top: 0%;
+  font-family: 'Roboto', sans-serif;
+  border-radius: 20px;
+  height: 7%;
+  position: absolute;
+
 }
 
 .button3:hover {
   background-color: white;
   color: black;
-  border: 2px solid #f44336;
+  border: 2px solid #4CAF50;
+  font-family: 'Roboto', sans-serif;
+  border-radius: 20px;
 }
 
 .modal-inicio {
@@ -203,6 +241,12 @@ figure {
   /* Fallback color */
   background-color: rgba(0, 0, 0, 0.4);
   /* Black w/ opacity */
+  font-family: 'Bad Script', cursive;
+
+
+}
+.esri-widget{
+  color: #000;
 }
 
 /* Modal Content/Box */
@@ -214,4 +258,21 @@ figure {
   border: 1px solid #888;
   width: 80%;
   /* Could be more or less, depending on screen size */
+  font-family: 'Bad Script', cursive;
+  border-radius: 20px;
+  background-image: url("../assets/ima.jpg");
+  
 }
+.modal-content #ficha{
+  width: 100%;
+  height: 100%;
+}
+
+#text{
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  color: black;
+}
+/*.swal-overlay--show-modal .swal-modal {
+  background-image: url("../assets/ima.jpg");
+}*/ 

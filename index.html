@@ -7,16 +7,20 @@
   <title>Ruta del agua</title>
 
   <link rel="stylesheet" href="https://js.arcgis.com/4.12/esri/themes/light/main.css" />
-  <link href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/png" href="/imágenes/mifavicon.png" />
+  <link href="https://fonts.googleapis.com/css?family=Abril+Fatface&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <link rel="icon" type="icon/png" href="assets/sea.png">
   <script src="https://js.arcgis.com/4.12/"></script>
   <link rel="stylesheet" href="css/style.css" type="text/css">
+  <script src="js/alertas.js"></script>
   <script src="js/preguntas.js"></script>
   <script src="js/map.js"></script>
 </head>
 
 <body>
   <header>
+    
     <audio id="audio" src="https://www.soundjay.com/button/button-10.wav" autoplay="false"></audio>
     <div id="random-div">
       <figure>
@@ -37,9 +41,29 @@
   <div id="viewDiv"></div>
   <div id="nombre-div" class="esri-widget">
     <center>
-      <h1 id="nombre-municipio">Juego</h1>
+      <h1 id="nombre-municipio">Instrucciones</h1>
     </center>
   </div>
+  <div id="instrucciones-div" class="esri-widget">
+  <b>
+      <p style="font-size: 20px;   font-family: 'Roboto', sans-serif;"id="instrucciones">Sigue estos pasos para disfrutar de la Ruta del Agua:
+  </b>    
+      <br>  
+      <br> 
+        <ul>
+          <li>Mira el nombre del municipio que sale en la parte superior de la pantalla.</li>
+          <br>
+          <li>Haz clic en el municipio correspondiente al nombre que te salió.</li>
+          <br>
+          <li>Tienes 4 intentos para acertar. Fíjate en las vidas que tienes en la parte superior izquierda.</li>
+          <br>
+          <li>Si aciertas, te saldrá un cuestionario que probará tu conocimiento sobre el municipio, y te llevará a conocer más sobre este.</li>
+          <br>
+          <li>¡Sigue así hasta descubrir todos los municipios!</li>
+          <br>
+        </ul>
+      </p>
+    </div>
   <div id="preguntas-div" class="esri-widget">
     <form id="form" action="">
       <div id="pregunta"></div>
@@ -47,8 +71,7 @@
         <br>
         <button class="button button2" type='button' id="enviar" style="visibility: hidden;">Enviar</button>
         <br>
-        <button class="button button1" type='button' id="reiniciar" style="visibility: hidden;">¡Volver a
-          jugar!</button>
+        <button class="button button1" type='button' id="reiniciar" style="visibility: hidden;">¡Volver a jugar!</button>
       </center>
     </form>
     </form>
@@ -61,15 +84,16 @@
   </div>
   <div id="modalInicio" class="modal-inicio">
     <div class="modal-content-inicio">
-      <h1>Siguiendo el camino de la Ruta del Agua</h1>
-      <p>Bienvenido a la Ruta del Agua. Un recorrido para disfrutar las maravillas de la naturaleza y del encanto
-        singular de los páramos, frágiles ecosistemas, fuente de agua, que en Cundinamarca ocupan alrededor de 386.000
-        hectáreas. Embalses como San Rafael y Chingaza, lagunas sagradas que fueron centro de adoración muisca, pantanos
-        como el de Martos, fuentes termales e imponentescaídas de agua hacen parte de este viaje que a través de ocho
-        municipios. 
-        <br>Pero, ¿qué tanto sabe sobre esta ruta? Vaya descubriéndola mientras la recorreen nuestro mapa
-        interactivo:</p>
-      <button class="button button3" type='button' id="jugar" ">Jugar!</button>
+      <center>
+          <h1>Siguiendo el camino de la Ruta del Agua</h1>
+      
+      <p id="text">Bienvenido a la 'Ruta del agua'. Un recorrido para disfrutar de las maravillas de la naturaleza y el encanto singular de los páramos, frágiles ecosistemas, fuentes de agua, que en Cundinamarca ocupan alrededor de 386.000 hectáreas. Embalses como San Rafael y Chingaza, lagunas sagradas que fueron centro de adoración muisca, pantanos como el de Martos, fuentes termales e imponentes caídas de agua hacen parte de este viaje a través de ocho municipios.
+      </p>
+      <p id="text">
+       Pero, ¿qué tanto sabes sobre esta ruta?. Descúbrela mientras la recorres en nuestro mapa interactivo 
+      </p>
+      </center>
+      <button class="button button3" type='button' id="jugar" ">¡Jugar!</button>
     </div>
   </div>
 </body>

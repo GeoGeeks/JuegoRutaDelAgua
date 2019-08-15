@@ -4,7 +4,7 @@ require([
   "esri/views/MapView",
   "esri/widgets/Feature"
 ], function (WebMap, FeatureLayer, MapView, Feature) {
-
+  var puntaje = 0
   var intentos = 4
   var enJuego = true
   const municipiosInit = ['LA CALERA', 'GUASCA', 'FÓMEQUE', 'JUNÍN', 'GACHETÁ', 'GAMA', 'GACHALÁ', 'MEDINA']
@@ -19,11 +19,13 @@ require([
 
   span.onclick = function () {
     modal.style.display = "none";
+    alertaGano()
   }
 
   window.onclick = function (event) {
     if (event.target == modal) {
       modal.style.display = "none";
+      alertaGano()
     }
   }
 
@@ -57,6 +59,7 @@ require([
   var nombreMunicipio = document.getElementById('nombre-municipio')
   var preguntaDiv = document.getElementById('pregunta')
   var sound = document.getElementById("audio");
+  var preguntasDiv = document.getElementById("instrucciones-div")
 
   btnEnviar.onclick = function () {
     let form = document.getElementById('form')
@@ -66,16 +69,18 @@ require([
     if (valueRespuestaUno === "true" && valueRespuestaDos === "true" && valueRespuestaTres === "true") {
       modal.style.display = "block"
       if (municipios.length > 0) {
+        puntaje+=3    
         siguientePregunta()
         enJuego = true
       } else {
         enJuego = false
         limpiarPreguntas()
-        nombreMunicipio.innerHTML = 'Has ganado!'
+        nombreMunicipio.innerHTML = '¡Has ganado!<br><br>Tu puntaje es: '+puntaje+'/24'
         btnReiniciar.style.visibility = 'visible'
       }
     } else {
-      sound.play();
+      alertaError()
+      //sound.play();
     }
   }
 
@@ -143,12 +148,21 @@ require([
     }
     btnEnviar.style.visibility = 'hidden'
   }
+  function limpiarInstrucines(){
+    preguntasDiv.innerHTML = ''
+    while (preguntasDiv.firstChild){
+      preguntasDiv.removeChild(preguntasDiv.firstChild);
+    }
+    preguntasDiv.style.display='none'
+
+  }
 
   function intentoFallido() {
     intentos -= 1
     if (intentos > 0) {
       document.getElementById('vidas_' + intentos).src = 'assets/death.png'
     } else {
+      limpiarInstrucines()
       document.getElementById('vidas_' + intentos).src = 'assets/death.png'
       var labelOn = new FeatureLayer({
         portalItem: {
@@ -160,7 +174,7 @@ require([
       enJuego = false
       map.add(labelOn);
       modal.style.display = "none";
-      nombreMunicipio.innerHTML = 'Has perdido!'
+      nombreMunicipio.innerHTML = '¡Has perdido!<br><br>Tu puntaje: '+puntaje+'/24'
       btnReiniciar.style.visibility = 'visible'
     }
   }
@@ -211,6 +225,7 @@ require([
                 }) {
                   return nombre === result
                 })
+                limpiarInstrucines()
                 mostrarPreguntasPorMunicipio(valor[0])
               } else {
                 intentoFallido()

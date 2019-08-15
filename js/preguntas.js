@@ -17,7 +17,7 @@ const preguntas = [{
       }
     ]
   }, {
-    txt: '¿Medina tiene 13 ríos. ¿Cuáles de estos hacen parte ellos?',
+    txt: 'Medina tiene 13 ríos. De los siguientes, ¿cuáles quedan en el municipio?',
     respuestas: [{
         txt: 'Gazamumo y Gazaunta',
         valida: true
@@ -115,7 +115,7 @@ const preguntas = [{
       }
     ]
   }, {
-    txt: '¿Además de El guarumal y El retiro, ¿qué cascada es llamativa en Gama?',
+    txt: 'Además de El guarumal y El retiro, ¿qué cascada es llamativa en Gama?',
     respuestas: [{
         txt: 'La pichina',
         valida: false
@@ -198,7 +198,7 @@ const preguntas = [{
   nombre: 'JUNÍN',
   ficha: 'assets/ficha_junin.jpg',
   preguntas: [{
-    txt: '¿En Junín hay unas cascadas imperdibles de casi 50m de altura.¿Cómo se llaman?',
+    txt: 'En Junín hay unas cascadas imperdibles de casi 50m. de altura.¿Cómo se llaman?',
     respuestas: [{
         txt: 'Cascadas de Sueva',
         valida: true
@@ -213,17 +213,17 @@ const preguntas = [{
       }
     ]
   }, {
-    txt: '¿Junín solía llamarse de otra forma.¿Cuál era el nombre y qué significaba en lengua muisca?',
+    txt: 'Junín solía llamarse de otra forma.¿Cuál era el nombre y qué significaba en lengua muisca?',
     respuestas: [{
-        txt: 'Lenguazaque.Significaba “Hablamos con el Zaque”',
+        txt: 'Lenguazaque. Significaba “Hablamos con el Zaque”',
         valida: false
       },
       {
-        txt: 'Chipazaque.Significaba “Nuestro padre, el Zaque”',
+        txt: 'Chipazaque. Significaba “Nuestro padre, el Zaque”',
         valida: true
       },
       {
-        txt: 'Tepanzaque.Significaba “Aquí habita el Zaque”',
+        txt: 'Tepanzaque. Significaba “Aquí habita el Zaque”',
         valida: false
       }
     ]
@@ -247,17 +247,17 @@ const preguntas = [{
   nombre: 'GUASCA',
   ficha: 'assets/ficha_guasca.jpg',
   preguntas: [{
-    txt: '¿A qué altura está la laguna de Siecha, atractivo del municipio de Guasca?',
+    txt: '¿A qué altura está la laguna de Siecha, uno de los atractivos del municipio de Guasca?',
     respuestas: [{
-        txt: '3.673 msnm',
+        txt: '3.673 msnm.',
         valida: true
       },
       {
-        txt: '3.879 msnm',
+        txt: '3.879 msnm.',
         valida: false
       },
       {
-        txt: '3.214 msnm',
+        txt: '3.214 msnm.',
         valida: false
       }
     ]
@@ -277,8 +277,7 @@ const preguntas = [{
       }
     ]
   }, {
-    // TODO CORREGIR
-    txt: '¿Qué traduce Guasca en lengua muisca?',
+    txt: '¿Qué traduce "Guasca" en lengua muisca?',
     respuestas: [{
         txt: '“Entre ríos”',
         valida: true
@@ -346,7 +345,7 @@ const preguntas = [{
   nombre: 'FÓMEQUE',
   ficha: 'assets/ficha_fomeque.jpg',
   preguntas: [{
-    txt: '¿Fómeque, en muisca, traduce “el bosque de...” qué animales?',
+    txt: 'Fómeque, en muisca, traduce “el bosque de...” ¿qué animales?',
     respuestas: [{
         txt: 'El bosque de los osos',
         valida: false
