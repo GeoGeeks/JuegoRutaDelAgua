@@ -5,36 +5,52 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=off" />
   <title>Ruta del agua</title>
-
-  <link rel="stylesheet" href="https://js.arcgis.com/4.12/esri/themes/light/main.css" />
-  <link href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap" rel="stylesheet">
+  <!-- Estilos -->
   <link rel="icon" type="image/png" href="/imágenes/mifavicon.png" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/style.css">
+  <!-- API ArcGIS -->
+  <link rel="stylesheet" href="https://js.arcgis.com/4.12/esri/themes/light/main.css" />
   <script src="https://js.arcgis.com/4.12/"></script>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <!-- <script src="https://unpkg.com/sweetalert@2.1.2/dist/sweetalert.min.js"></script> -->
-  <!-- <link rel="stylesheet" href="css/style.css" type="text/css"> -->
+  <!-- Lógica -->
   <script src="js/preguntas.js"></script>
   <script src="js/map.js"></script>
 </head>
 
 <body>
-<nav class="navbar navbar-light bg-white">
-  <a class="navbar-brand" href="#">
-    <img src="assets/logo.png" width="60" height="60" class="d-inline-block align-top" alt="">
-  </a>
-  <div id="titulo" class="d-flex justify-content-center">
-  	<p class="font-weight-bold">Bold text.</p>
-        <h3 id="">Busca: <small id="municipio-random"></small></h3>
-      </div>
-	<div class="d-flex justify-content-end">
-	<h1 class="mr-2">Vidas</h1>
-	<img id="vida_0" width="60" height="60" class="img-fluid" src="assets/life.png">
-	<img id="vida_1" width="60" height="60" class="img-fluid" src="assets/life.png" alt="">
-	<img id="vida_2" width="60" height="60" class="img-fluid" src="assets/life.png" alt="">
-	<img id="vida_3" width="60" height="60" class="img-fluid" src="assets/life.png" alt="">
-        </div>
-</nav>
   <header>
+    <div class="container">
+      <div class="row justify-content-between">
+        <div class=" col-2">
+        <img src="assets/logo.png" width="60" height="60" class="d-inline-block align-top" alt="">
+      </div>
+      <div class="col-7">
+        <h3>Busca: <small id="municipio-random"></small></h3>
+      </div>
+      <div class="col-3">
+        <div class="row">
+          <h3>Vidas</h3>
+          <img id="vida_0" width="40" height="40" src="assets/life.png">
+          <img id="vida_1" width="40" height="40" src="assets/life.png">
+          <img id="vida_2" width="40" height="40" src="assets/life.png">
+          <img id="vida_3" width="40" height="40" src="assets/life.png">
+
+        </div>
+      </div>
+    </div>
+    </div>
+  </header>
+
+  <!-- <nav class="navbar navbar-light bg-white">
+    <a class="navbar-brand" href="#">
+    </a>
+    <div id="titulo" class="d-flex justify-content-center">
+    </div>
+    <div class="d-flex justify-content-end">
+    </div>
+  </nav> -->
+  <!-- <header>
     <audio id="audio" src="https://www.soundjay.com/button/button-10.wav" autoplay="false"></audio>
     <div id="random-div">
       <figure>
@@ -92,7 +108,7 @@
         <br>Pero, qué tanto sabes sobre esta ruta? Descúbrela mientras la recorres en nuestro mapa interactivo:</p>
       <button class="button button3" type='button' id="jugar" ">Jugar!</button>
     </div>
-  </div>
+  </div> -->
 </body>
 
 </html>
